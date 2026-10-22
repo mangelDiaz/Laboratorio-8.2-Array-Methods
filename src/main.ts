@@ -78,26 +78,26 @@ const pacientes: Pacientes[] = [
 
 // APARTADO 1 - A - Queremos extraer la lista de paciente que están asignados a la especialidad de Pediatría.
 
-
-/*
-const obtenPacientesAsignadosAPediatria = (
-  pacientes: Pacientes[]
-): Pacientes[] => {
-  // Tu implementación aquí :)
+const obtenPacientesAsignadosAPediatria = (pacientes: Pacientes[]): Pacientes[] => {
+    return pacientes.filter(
+        (paciente: Pacientes): boolean => paciente.especialidad === "Pediatra"
+    );
 };
-*/
+
+console.log(obtenPacientesAsignadosAPediatria(pacientes));
+
 
 
 // APARTADO 1 - B - Queremos extraer la lista de pacientes asignados a Pediatría y que tengan una edad menor de 10 años.
 
-
-/*
-const obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios = (
-  pacientes: Pacientes[]
-): Pacientes[] => {
-  // Tu implementación aquí :)
+const obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios = (pacientes: Pacientes[]): Pacientes[] => {
+  return pacientes.filter(
+        (paciente: Pacientes): boolean => paciente.especialidad === "Pediatra" && paciente.edad < 10
+  );
 };
-*/
+
+console.log(obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios(pacientes));
+
 
 
 // APARTADO 2 - Queremos activar el protocolo de urgencia si cualquier de los pacientes tiene un ritmo cardíaco superior a 100 pulsaciones por minuto y una temperatura corporal superior a 39 grados.
