@@ -76,6 +76,8 @@ const pacientes: Pacientes[] = [
   },
 ];
 
+
+
 // APARTADO 1 - A - Queremos extraer la lista de paciente que están asignados a la especialidad de Pediatría.
 
 const obtenPacientesAsignadosAPediatria = (pacientes: Pacientes[]): Pacientes[] => {
@@ -103,16 +105,14 @@ console.log(obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios(pacientes));
 // APARTADO 2 - Queremos activar el protocolo de urgencia si cualquier de los pacientes tiene un ritmo cardíaco superior a 100 pulsaciones por minuto y una temperatura corporal superior a 39 grados.
 // Es decir, crear una función que devuelve true/false dependiendo si se da la condición, algo así como:
 
-
-/*
 const activarProtocoloUrgencia = (pacientes: Pacientes[]): boolean => {
-  let activarProctolo = false;
-
-  // Tu implementación aquí :)
-
-  return activarProctolo;
+  return pacientes.some(
+    (paciente: Pacientes): boolean => paciente.frecuenciaCardiaca > 100 && paciente.temperatura > 39
+  );
 };
-*/
+
+console.log(activarProtocoloUrgencia(pacientes));
+
 
 
 // APARTADO 3 - El pediatra no puede atender hoy a los pacientes, queremos reasignar los pacientes asignados a la especialidad de pediatría a la de medico de familia.
