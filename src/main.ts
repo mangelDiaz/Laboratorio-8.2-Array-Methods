@@ -135,29 +135,43 @@ console.log(reasignaPacientesAMedicoFamilia(pacientes));
 
 // APARTADO 4 - Queremos saber si podemos mandar al Pediatra a casa (si no tiene pacientes asignados), comprobar si en la lista hay algún paciente asignado a pediatría.
 
-const HayPacientesDePediatria = (pacientes: Pacientes[]): boolean => {
+const hayPacientesDePediatria = (pacientes: Pacientes[]): boolean => {
   return pacientes.some(
     (paciente: Pacientes): boolean =>
       paciente.especialidad === "Pediatra"
   );
 };
-console.log(HayPacientesDePediatria(pacientes));
-console.log(HayPacientesDePediatria(reasignaPacientesAMedicoFamilia(pacientes)));
+console.log(hayPacientesDePediatria(pacientes));
+console.log(hayPacientesDePediatria(reasignaPacientesAMedicoFamilia(pacientes)));
 
 
 // APARTADO 5 - Queremos calcular el número total de pacientes que están asignados a la especialidad de Medico de familia, y lo que están asignados a Pediatría y a cardiología.
 
-
-/*
 interface NumeroPacientesPorEspecialidad {
   medicoDeFamilia: number;
   pediatria: number;
   cardiologia: number;
 }
 
-const cuentaPacientesPorEspecialidad = (
-  pacientes: Pacientes[]
-): NumeroPacientesPorEspecialidad => {
-  // Tu implementación aquí :)
+const cuentaPacientesPorEspecialidad = (pacientes: Pacientes[]): NumeroPacientesPorEspecialidad => {
+  return pacientes.reduce(
+    (total: NumeroPacientesPorEspecialidad, paciente: Pacientes): NumeroPacientesPorEspecialidad => {
+      if (paciente.especialidad === "Medico de familia") {
+        total.medicoDeFamilia++;
+      }
+      if (paciente.especialidad === "Pediatra") {
+        total.pediatria++;
+      }
+      if (paciente.especialidad === "Cardiólogo") {
+        total.cardiologia++;
+      }
+      return total;
+    },
+    {
+      medicoDeFamilia: 0,
+      pediatria: 0,
+      cardiologia: 0,
+    }
+  );
 };
-*/
+console.log(cuentaPacientesPorEspecialidad(pacientes));
