@@ -81,9 +81,9 @@ const pacientes: Pacientes[] = [
 // APARTADO 1 - A - Queremos extraer la lista de paciente que están asignados a la especialidad de Pediatría.
 
 const obtenPacientesAsignadosAPediatria = (pacientes: Pacientes[]): Pacientes[] => {
-    return pacientes.filter(
-        (paciente: Pacientes): boolean => paciente.especialidad === "Pediatra"
-    );
+  return pacientes.filter(
+    (paciente: Pacientes): boolean => paciente.especialidad === "Pediatra"
+  );
 };
 
 console.log(obtenPacientesAsignadosAPediatria(pacientes));
@@ -94,7 +94,8 @@ console.log(obtenPacientesAsignadosAPediatria(pacientes));
 
 const obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios = (pacientes: Pacientes[]): Pacientes[] => {
   return pacientes.filter(
-        (paciente: Pacientes): boolean => paciente.especialidad === "Pediatra" && paciente.edad < 10
+    (paciente: Pacientes): boolean =>
+      paciente.especialidad === "Pediatra" && paciente.edad < 10
   );
 };
 
@@ -107,7 +108,8 @@ console.log(obtenPacientesAsignadosAPediatriaYMenorDeDiezAnios(pacientes));
 
 const activarProtocoloUrgencia = (pacientes: Pacientes[]): boolean => {
   return pacientes.some(
-    (paciente: Pacientes): boolean => paciente.frecuenciaCardiaca > 100 && paciente.temperatura > 39
+    (paciente: Pacientes): boolean =>
+      paciente.frecuenciaCardiaca > 100 && paciente.temperatura > 39
   );
 };
 
@@ -117,14 +119,18 @@ console.log(activarProtocoloUrgencia(pacientes));
 
 // APARTADO 3 - El pediatra no puede atender hoy a los pacientes, queremos reasignar los pacientes asignados a la especialidad de pediatría a la de medico de familia.
 
-
-/*
-const reasignaPacientesAMedicoFamilia = (
-  pacientes: Pacientes[]
-): Pacientes[] => {
-  // Tu implementación aquí :)
+const reasignaPacientesAMedicoFamilia = (pacientes: Pacientes[]): Pacientes[] => {
+  return pacientes.map((paciente: Pacientes): Pacientes => {
+    if (paciente.especialidad === "Pediatra") {
+      return {
+        ...paciente,
+        especialidad: "Medico de familia",
+      };
+    }
+    return paciente;
+  });
 };
-*/
+console.log(reasignaPacientesAMedicoFamilia(pacientes));
 
 
 // APARTADO 4 - Queremos saber si podemos mandar al Pediatra a casa (si no tiene pacientes asignados), comprobar si en la lista hay algún paciente asignado a pediatría.
